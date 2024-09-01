@@ -23,7 +23,12 @@ const BirdGuessingGame: React.FC = () => {
         setIsCorrect(null);
     };
 
-    if (loading) return <div className="text-center py-4">Loading.. <LoadingSpinner/></div>;
+    if (loading)
+        return (
+            <div className="text-center py-4">
+                Loading.. <LoadingSpinner />
+            </div>
+        );
     if (error)
         return <div className="text-center py-4 text-red-500">{error}</div>;
     if (!birdData) return null;
