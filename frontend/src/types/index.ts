@@ -7,4 +7,4 @@ export interface BirdData {
     country: string;
     recordist: string;
     length: string;
-  }
+}
