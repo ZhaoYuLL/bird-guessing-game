@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import { BirdData } from '../types/types';
+import { BirdData } from '../types';
 
 export const useBirdData = () => {
   const [birdData, setBirdData] = useState<BirdData | null>(null);
