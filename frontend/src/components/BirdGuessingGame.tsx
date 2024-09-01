@@ -3,6 +3,7 @@ import { useBirdData } from "../hooks/useBirdData";
 import AudioPlayer from "./AudioPlayer";
 import GuessForm from "./GuessForm";
 import ResultDisplay from "./ResultDisplay";
+import LoadingSpinner from "./LoadingSpinner";
 
 const BirdGuessingGame: React.FC = () => {
     const { birdData, loading, error, fetchRandomBird } = useBirdData();
@@ -22,15 +23,15 @@ const BirdGuessingGame: React.FC = () => {
         setIsCorrect(null);
     };
 
-    if (loading) return <div className="text-center py-4">Loading...</div>;
+    if (loading) return <div className="text-center py-4">Loading.. <LoadingSpinner/></div>;
     if (error)
         return <div className="text-center py-4 text-red-500">{error}</div>;
     if (!birdData) return null;
 
     return (
-        <div className="max-w-md mx-auto p-6 bg-white rounded-lg shadow-xl">
+        <div className="mx-auto p-6 bg-white rounded-lg shadow-xl">
             <h1 className="text-3xl font-bold mb-6 text-center text-blue-600">
-                Bird Guessing Game
+                Guess the Bird
             </h1>
             <AudioPlayer
                 recordingUrl={birdData.recordingUrl}
