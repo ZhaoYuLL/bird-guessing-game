@@ -9,8 +9,10 @@
         "prepare": "husky",
         "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,css,scss,md}\"",
         "start": "concurrently \"npm run start:backend\" \"npm run start:frontend\"",
+        "preview": "concurrently \"npm run start:backend\" \"npm run preview:frontend\"",
         "start:backend": "node backend/server.js",
-        "start:frontend": "cd frontend && npm run dev"
+        "start:frontend": "cd frontend && npm run dev",
+        "preview:frontend": "cd frontend && npm run build && npm run preview"
     },
     "dependencies": {
         "lucide-react": "^0.436.0"

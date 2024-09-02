@@ -14,6 +14,7 @@ const BirdGuessingGame: React.FC = () => {
 
     useEffect(() => {
         if (birdData) {
+            console.log(birdData.commonName)
             fetchWikipediaData(birdData.commonName);
         }
     }, [birdData]);
