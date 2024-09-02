@@ -16,7 +16,7 @@ const ResultDisplay: React.FC<ResultDisplayProps> = ({
 
     return (
         <div
-            className={`p-4 rounded-lg mb-4 ${isCorrect ? 'bg-green-100 border-green-500' : 'bg-red-100 border-red-500'} border-2`}
+            className={`p-4 rounded-lg mb-4 ${isCorrect ? "bg-green-100 border-green-500" : "bg-red-100 border-red-500"} border-2`}
         >
             <div className="flex items-center mb-2">
                 {isCorrect ? (

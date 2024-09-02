@@ -8,6 +8,7 @@ export const useBirdData = () => {
     const [error, setError] = useState<string | null>(null);
 
     const fetchRandomBird = async () => {
+        const startTime = performance.now();
         setLoading(true);
         setError(null);
         try {
@@ -20,6 +21,9 @@ export const useBirdData = () => {
             console.error("Error fetching bird data:", err);
         } finally {
             setLoading(false);
+            const endTime = performance.now(); // End timing
+            const timeInSeconds = (endTime - startTime) / 1000; // Convert to seconds
+            console.log(`Time taken: ${timeInSeconds.toFixed(3)} seconds`);
         }
     };
 
