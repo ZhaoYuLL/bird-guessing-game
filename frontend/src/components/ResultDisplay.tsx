@@ -1,16 +1,21 @@
 import React from "react";
 import { Check, X } from "lucide-react";
+import WikipediaInfo from "./WikipediaInfo";
 
 interface ResultDisplayProps {
     isCorrect: boolean | null;
     correctName: string;
     scientificName: string;
+    wikiImageUrl: string | null;
+    wikiArticleTitle: string | null;
 }
 
 const ResultDisplay: React.FC<ResultDisplayProps> = ({
     isCorrect,
     correctName,
     scientificName,
+    wikiImageUrl,
+    wikiArticleTitle,
 }) => {
     if (isCorrect === null) return null;
 
@@ -32,10 +37,11 @@ const ResultDisplay: React.FC<ResultDisplayProps> = ({
                 <span className="font-semibold">Common Name:</span>{" "}
                 {correctName}
             </p>
-            <p>
-                <span className="font-semibold text-red">Scientific Name:</span>{" "}
+            <p className="mb-4">
+                <span className="font-semibold">Scientific Name:</span>{" "}
                 <i>{scientificName}</i>
             </p>
+            <WikipediaInfo imageUrl={wikiImageUrl} articleTitle={wikiArticleTitle} />
         </div>
     );
 };
