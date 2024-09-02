@@ -9,7 +9,7 @@ const BirdGuessingGame: React.FC = () => {
     const { birdData, loading, error, fetchRandomBird } = useBirdData();
     const [showAnswer, setShowAnswer] = useState<boolean>(false);
     const [isCorrect, setIsCorrect] = useState<boolean | null>(null);
-    const [wikiData, setWikiData] = useState<string[]>([]);
+    const [wikiArticleTitle, setWikiArticleTitle] = useState<string | null>(null);
     const [wikiImageUrl, setWikiImageUrl] = useState<string | null>(null);
 
     useEffect(() => {
@@ -26,10 +26,11 @@ const BirdGuessingGame: React.FC = () => {
             });
             const searchData = await searchResponse.json();
             console.log(searchData)
-            setWikiData(searchData[1]); // The second element contains the titles
 
             if (searchData[1] && searchData[1][0]) {
                 const firstResult = searchData[1][0];
+                setWikiArticleTitle(firstResult);
+
                 const imageResponse = await fetch(
                     `https://en.wikipedia.org/w/api.php?action=query&origin=*&format=json&titles=${encodeURIComponent(firstResult)}&prop=pageimages&pithumbsize=300`,
                     { mode: 'cors' }
@@ -57,6 +58,7 @@ const BirdGuessingGame: React.FC = () => {
         setShowAnswer(false);
         setIsCorrect(null);
         setWikiImageUrl(null);
+        setWikiArticleTitle(null);
     };
 
     if (loading) return <div className="text-center py-4">Loading.. <LoadingSpinner /></div>;
@@ -81,22 +83,9 @@ const BirdGuessingGame: React.FC = () => {
                     isCorrect={isCorrect}
                     correctName={birdData.commonName}
                     scientificName={birdData.scientificName}
+                    wikiImageUrl={wikiImageUrl}
+                    wikiArticleTitle={wikiArticleTitle}
                 />
-            )}
-            {wikiImageUrl && (
-                <div className="mt-4">
-                    <img src={wikiImageUrl} alt={birdData.commonName} className="mx-auto max-w-full h-auto rounded-lg shadow-md" />
-                </div>
-            )}
-            {wikiData.length > 0 && (
-                <div className="mt-4">
-                    <h2 className="text-lg font-semibold">Related Wikipedia Articles:</h2>
-                    <ul className="list-disc pl-5">
-                        {wikiData.slice(0, 3).map((title, index) => (
-                            <li key={index}>{title}</li>
-                        ))}
-                    </ul>
-                </div>
             )}
             <button
                 onClick={handleNextBird}
