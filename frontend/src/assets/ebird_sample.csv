@@ -1,0 +1,8 @@
+TAXON_ORDER,CATEGORY,SPECIES_CODE,PRIMARY_COM_NAME,SCI_NAME,ORDER1,FAMILY,SPECIES_GROUP,REPORT_AS
+2,species,ostric2,Common Ostrich,Struthio camelus,Struthioniformes,Struthionidae (Ostriches),Ostriches,
+7,species,ostric3,Somali Ostrich,Struthio molybdophanes,Struthioniformes,Struthionidae (Ostriches),Ostriches,
+8,slash,y00934,Common/Somali Ostrich,Struthio camelus/molybdophanes,Struthioniformes,Struthionidae (Ostriches),Ostriches,
+10,species,grerhe1,Greater Rhea,Rhea americana,Rheiformes,Rheidae (Rheas),Rheas,
+16,species,lesrhe2,Lesser Rhea,Rhea pennata,Rheiformes,Rheidae (Rheas),Rheas,
+17,issf,lesrhe4,Lesser Rhea (Puna),Rhea pennata tarapacensis/garleppi,Rheiformes,Rheidae (Rheas),Rheas,lesrhe2
+20,issf,lesrhe3,Lesser Rhea (Darwin's),Rhea pennata pennata,Rheiformes,Rheidae (Rheas),Rheas,lesrhe2
